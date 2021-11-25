@@ -9,54 +9,34 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.aac.data.Word
 import com.example.aac.data.WordViewModel
 import com.example.aac.data.WordViewModelFactory
 import com.example.aac.data.WordsApplication
-import com.example.aac.ui.NewWordActivity
-import com.example.aac.ui.WordListAdapter
+import com.example.aac.ui.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
-    private val newWordActivityRequestCode = 1
-    private val wordViewModel: WordViewModel by viewModels {
-        WordViewModelFactory((application as WordsApplication).repository)
-    }
-
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = WordListAdapter()
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        tabLayout = findViewById(R.id.tabLayout)
+        viewPager = findViewById(R.id.pager)
+        val adapter = PageAdapter(this)
+        adapter.addFragment(Fragment1(), "Fragment 1")
+        adapter.addFragment(Fragment2(), "Fragment 2")
+        adapter.addFragment(Fragment3(), "Fragment 3")
 
-        wordViewModel.allWords.observe(this, Observer { words ->
-            // Update the cached copy of the words in the adapter.
-            words?.let { adapter.submitList(it) }
-        })
-
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, NewWordActivity::class.java)
-            startActivityForResult(intent, newWordActivityRequestCode)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(NewWordActivity.EXTRA_REPLY)?.let {
-                val word = Word(it)
-                wordViewModel.insert(word)
-            }
-        } else {
-            Toast.makeText(
-                applicationContext,
-                R.string.empty_not_saved,
-                Toast.LENGTH_LONG).show()
-        }
+        viewPager.adapter = adapter
+        TabLayoutMediator(tabLayout, viewPager){tab, position ->
+            tab.text = adapter.getFragmentTitle(position)
+        }.attach()
     }
 }
