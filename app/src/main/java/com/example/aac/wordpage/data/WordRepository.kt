@@ -1,6 +1,8 @@
-package com.example.aac.data
+package com.example.aac.wordpage.data
 
 import androidx.annotation.WorkerThread
+import com.example.aac.wordpage.data.model.Word
+import com.example.aac.wordpage.data.source.local.WordDao
 import kotlinx.coroutines.flow.Flow
 
 class WordRepository(private val wordDao: WordDao) {

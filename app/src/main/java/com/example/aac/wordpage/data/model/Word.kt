@@ -1,4 +1,4 @@
-package com.example.aac.data
+package com.example.aac.wordpage.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,6 +1,8 @@
 package com.example.aac.data
 
 import androidx.lifecycle.*
+import com.example.aac.wordpage.data.WordRepository
+import com.example.aac.wordpage.data.model.Word
 import kotlinx.coroutines.launch
 
 class WordViewModel(private val repository: WordRepository) : ViewModel() {

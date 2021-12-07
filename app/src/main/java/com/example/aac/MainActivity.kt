@@ -1,22 +1,12 @@
 package com.example.aac
 
-import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.example.aac.data.Word
-import com.example.aac.data.WordViewModel
-import com.example.aac.data.WordViewModelFactory
-import com.example.aac.data.WordsApplication
+import com.example.aac.photopage.ui.Fragment3
 import com.example.aac.ui.*
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.aac.userpage.ui.Fragment2
+import com.example.aac.wordpage.ui.Fragment1
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

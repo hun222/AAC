@@ -1,4 +1,4 @@
-package com.example.aac.ui
+package com.example.aac.wordpage.ui
 
 import android.app.Activity
 import android.content.Intent

@@ -1,4 +1,4 @@
-package com.example.aac.ui
+package com.example.aac.wordpage.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aac.R
-import com.example.aac.data.Word
+import com.example.aac.wordpage.data.model.Word
 
 class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsComparator()) {
 

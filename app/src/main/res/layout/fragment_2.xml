@@ -3,13 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Fragment2">
+    tools:context="userpage.ui.Fragment2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:background="@color/cardview_dark_background"/>
+        android:layout_height="match_parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/big_padding"
+            tools:listitem="@layout/recyclerview_item"/>
+    </RelativeLayout>
 </FrameLayout>

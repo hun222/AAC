@@ -1,6 +1,5 @@
-package com.example.aac.ui
+package com.example.aac.wordpage.ui
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.Observer
@@ -17,10 +15,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aac.R
-import com.example.aac.data.Word
+import com.example.aac.wordpage.data.model.Word
 import com.example.aac.data.WordViewModel
 import com.example.aac.data.WordViewModelFactory
-import com.example.aac.data.WordsApplication
+import com.example.aac.wordpage.data.source.local.WordsApplication
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 // TODO: Rename parameter arguments, choose names that match

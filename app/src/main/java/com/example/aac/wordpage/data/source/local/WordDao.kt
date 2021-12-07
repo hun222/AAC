@@ -1,9 +1,10 @@
-package com.example.aac.data
+package com.example.aac.wordpage.data.source.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.aac.wordpage.data.model.Word
 import kotlinx.coroutines.flow.Flow
 
 @Dao
